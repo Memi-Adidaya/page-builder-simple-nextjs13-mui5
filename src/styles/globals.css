@@ -1,0 +1,29 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+.editor-icon {
+  width: 46px;
+  height: 46px;
+}
+.editor-header-icon {
+  width: 20px;
+  height: 20px;
+}
+
+
+
+/* Ensure app-content doesn't expand */
+.app-content {
+  flex-shrink: 0 !important;
+}
+
