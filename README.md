@@ -31,3 +31,7 @@ Repo ini menggunakan Material UI Versi 5 yang masih membutuhkan webpack. Jadi ja
 Setelah berhasil dijalankan, kemudian coba buat layout sederhana. Kemudian buka browser console, dan tekan tombol Save. Dan Anda akan melihat bentuk format Skema JSON tersebut.
 Skema itu bisa disimpan ke database.
 
+# ToDo
+1. Penambahan blok komponen (Maps, Hero Image, Slideshow, dll)
+2. HTML Generate
+
