@@ -11,7 +11,8 @@ Setiap Block memiliki pengaturan atau attribute yang bisa disesuaikan. Berikut b
 5. Refersh Page ( Refresh Layout Editor Tidak Menghilangkan Layout Yang Sedang di-Edit)
 6. Purge Saved Layout (Menghapus data layout dari memori/browser)
 
-# Screenshoot
+# Screenshoot & Demo (Video)
+<p><a href="https://youtu.be/NZ-cCxjGboM" alt="Demo Video">Lihat Preview Demo</a></p>
 <img width="1917" height="931" alt="Simple Builder" src="https://github.com/user-attachments/assets/f37ad9b2-ee7c-4c82-85e5-c2b131d1c810" />
 
 
