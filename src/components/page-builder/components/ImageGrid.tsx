@@ -1,20 +1,20 @@
-'use client'
+"use client";
 
-import { Box, Typography } from '@mui/material'
-import React from 'react'
+import { Box, Typography } from "@mui/material";
+import React from "react";
 
 interface ImageItem {
-  src: string
-  alt: string
+  src: string;
+  alt: string;
 }
 
 interface ImageGridProps {
-  title: string
-  images: ImageItem[]
-  columns: number
-  gap: number
-  backgroundColor: string
-  objectFit: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down'
+  title: string;
+  images: ImageItem[];
+  columns: number;
+  gap: number;
+  backgroundColor: string;
+  objectFit: "cover" | "contain" | "fill" | "none" | "scale-down";
 }
 
 export const ImageGrid: React.FC<ImageGridProps> = ({
@@ -23,27 +23,27 @@ export const ImageGrid: React.FC<ImageGridProps> = ({
   columns,
   gap,
   backgroundColor,
-  objectFit = 'cover'
+  objectFit = "cover",
 }) => {
-  const validColumns = Number(columns) > 0 ? Math.floor(Number(columns)) : 1
-  const gridTemplateColumns = `repeat(${validColumns}, minmax(0, 1fr))`
+  const validColumns = Number(columns) > 0 ? Math.floor(Number(columns)) : 1;
+  const gridTemplateColumns = `repeat(${validColumns}, minmax(0, 1fr))`;
 
   return (
     <div style={{ backgroundColor }}>
       <Box
         sx={{
-          p: { xs: 8, md: 12 }
+          p: { xs: 8, md: 12 },
         }}
       >
         {title && (
           <Typography
-            variant='h4'
-            component='h2'
-            align='center'
+            variant="h4"
+            component="h2"
+            align="center"
             sx={{
-              fontWeight: 'bold',
+              fontWeight: "bold",
               mb: 8, // margin-bottom = theme.spacing(8)
-              color: 'grey.800'
+              color: "grey.800",
             }}
           >
             {title}
@@ -51,37 +51,43 @@ export const ImageGrid: React.FC<ImageGridProps> = ({
         )}
         <Box
           sx={{
-            display: 'grid',
-            gridTemplateColumns: gridTemplateColumns,
-            gap: `${gap}px`
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: `${gap}px`,
           }}
         >
           {(images || []).map((image, index) => (
             <Box
               key={index}
               sx={{
-                overflow: 'hidden',
+                overflow: "hidden",
                 borderRadius: 2, // ≈ rounded-lg
-                boxShadow: 2 // ≈ shadow-md
+                boxShadow: 2, // ≈ shadow-md
+              }}
+              style={{
+                // Set the flex-basis to create N columns, accounting for the gap.
+                // flex-grow: 0, flex-shrink: 1
+                flex: `0 1 calc(${100 / validColumns}% - ${(gap * (validColumns - 1)) / validColumns}px)`,
               }}
             >
               <Box
-                component='img'
+                component="img"
                 src={image.src}
                 alt={image.alt}
                 sx={{
-                  width: '100%', // w-full
-                  height: '100%', // h-full
-                  display: 'block', // block
-                  aspectRatio: '1 / 1', // aspect-square
-                  objectFit: objectFit // style prop yang kamu sudah punya
+                  width: "100%", // w-full
+                  height: "100%", // h-full
+                  display: "block", // block
+                  aspectRatio: "1 / 1", // aspect-square
+                  objectFit: objectFit, // style prop yang kamu sudah punya
                 }}
-                loading='lazy'
+                loading="lazy"
               />
             </Box>
           ))}
         </Box>
       </Box>
     </div>
-  )
-}
+  );
+};
